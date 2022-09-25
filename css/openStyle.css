@@ -4,7 +4,7 @@ body{
 }
 
 *{
-    font-family:sans-serif
+    font-family:sans-serif;
 }
 
 h1{
@@ -24,15 +24,51 @@ p{
 .sectionOne{
     display:flex;
     flex-direction:column;
+    
     margin-left: 200px;
     margin-right:200px;
     background-color:#2c2c2cff;
+    padding:15px;
     color: white;
     border:4px solid white;
     border-radius:10px;
 }
 
+.objectiveIMG
+{
+    display:flex;
+    flex-direction:row-reverse;
+    align-items: center;
+    gap:100px;
+    width:auto;
+    height:auto;
+    padding:80px;
+    background-color:#2c2c2cff;
+    border-radius:50px;
+}
 
+.title{
+    display:flex;
+    justify-content: center;
+
+}
+
+.titleImg{
+    display:flex;
+    justify-content: center;
+}
+
+.topLinks{
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+}
+
+.header{
+    display:flex;
+    align-items:space-between;
+    justify-content:space-between;
+}
 
 ul{
     list-style-type: none;
@@ -44,7 +80,9 @@ ul{
 
 .Header{
     display:flex;
+    flex-direction:column;
     justify-content:space-between;
+    align-items:center;
     color: white;
     padding:15px;
     border-radius:10px;
@@ -102,12 +140,19 @@ h4{
     justify-content:center;
     margin-left: 200px;
     margin-right:200px;
-    color:white;
-    background-color: #71a670ff;
+    color:black;
     border-radius:10px;
     border:4px solid white;
 
     
+}
+
+.Code
+{
+    color: white;
+    background-color: #2c2c2cff;
+    padding:50px;
+    border-radius: 50px;
 }
 
 .finishedCode
@@ -158,8 +203,20 @@ h4{
 }
 
 
-
 .sectionThree{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    background-color:rgb(255, 255, 255);
+    margin-left: 200px;
+    margin-right:200px;
+    border-radius:10px;
+    border:4px solid white;
+    color:rgb(0, 0, 0);
+}
+
+.sectionFour{
     display:flex;
     flex-direction:column;
     align-items:center;
@@ -170,6 +227,7 @@ h4{
     border-radius:10px;
     border:4px solid white;
     color:white;
+    padding:25px;
 }
 
 .upcomingCode
@@ -201,9 +259,4 @@ h4{
     justify-content:center;
     align-items: center;
     gap:45px;
-}
-
-a{
-    color:white;
-    style:none;
 }

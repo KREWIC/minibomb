@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Workout Planner</title>
+        <link rel="stylesheet" href="../css/openStyle.css">
+    </head>
+
+    <body>
+         
+        <div class="sectionOne">
+
+            <div class="topLinks">
+    
+            <a href="../index.html">
+        
+                    Minibomb
+            </a>
+                
+            <div class="siteLinks">
+                <ul>
+                    <li>Programs</li>
+                    <li>Coming Soon</li>
+                    <li>Blog</li>
+                </ul>
+            </div>
+    
+            </div>
+            
+                
+    
+            <div class="title">
+    
+                <h1>Workout Planner</h1>
+                
+            </div>
+    
+    
+            <div class="titleImg">
+                <img src="../img/WorkoutPlanner.svg" alt="Icon Image" style="width:150px;">
+            </div>
+            
+            </div>
+
+
+        <div class="sectionTwo">
+
+            <h2>Objective</h2>
+
+            <p>This program is designed to create a random workout based on a set of muscle groups you input. The program is pretty barebones for now, but will improve probably maybe at some point in the future.
+                The main purpose of this program is to use python to pull and utilize data from a seperate script.
+            </p>
+            <div class="objectiveIMG">
+                <img src="../img/downloadButton.png" alt="A download button" style="height:200px;">
+    
+                <img src="" alt="image of output here">
+    </div>
+        </div>
+
+        <div class="sectionThree">
+
+            <h2>The Code</h2>
+
+            <p>
+                This program uses a few different concepts. I've encorporated the random library so I can pull from the different arrays I have set up in my dataset. The main program pulls from the dataset and will randomly shuffle them.
+                The program will then pull from those shuffled list after taking an input from the user on the muscle groups they want to work that day.
+            </p>
+
+            <div class="Code">
+                <p># This is a program to pick a workout for you.</p>
+
+                <p>import random</p>
+                <p>import Data</p>
+                
+                <p>random.shuffle(Data.backHome)</p>
+                <p>random.shuffle(Data.chestHome)</p>
+                <p>random.shuffle(Data.bicepsHome)</p>
+                <p>random.shuffle(Data.tricepsHome)</p>
+                <p>random.shuffle(Data.shouldersHome)</p>
+                
+                
+                <p># Program starts by shuffling all the lists here</p>
+                
+                <p>def selectWorkout():
+                <p>    muscleSelection = input('please select 2 of the following muscle groups: Triceps, Biceps, Back, Chest, Shoulders\n')</p>
+                <p>    selectedWorkout1, selectedWorkout2 = muscleSelection.split(' ', 1)</p>
+                
+                <p>    if selectedWorkout1 == 'Triceps' or selectedWorkout2 == 'Triceps':</p>
+                <p>        print('\nhere are your Tricep workouts for the day\n')</p>
+                <p>        for x in range(4):</p>
+                <p>            print(Data.tricepsHome[x] + '\n')</p>
+                
+                <p>    if selectedWorkout1 == 'Biceps' or selectedWorkout2 == 'Biceps':</p>
+                <p>        print('\nhere are your Bicep workouts for the day\n')</p>
+                <p>        for x in range(4):</p>
+                <p>            print(Data.bicepsHome[x] + '\n')</p>
+                
+                <p>    if selectedWorkout1 == 'Back' or selectedWorkout2 == 'Back':</p>
+                <p>        print('\nhere are your Back workouts for the day\n')</p>
+                <p>        for x in range(4):</p>
+                <p>            print(Data.backHome[x] + '\n')</p>
+                
+                <p>    if selectedWorkout1 == 'Chest' or selectedWorkout2 == 'Chest':</p>
+                <p>        print('\nhere are your Chest workouts for the day\n')</p>
+                <p>        for x in range(4):</p>
+                <p>            print(Data.chestHome[x] + '\n')</p>
+                
+                <p>    if selectedWorkout1 == 'Shoulders' or selectedWorkout2 == 'Shoulders':</p>
+                <p>        print('\nhere are your Shoulder workouts for the day\n')</p>
+                <p>        for x in range(4):</p>
+                <p>            print(Data.shouldersHome[x] + '\n')</p>
+                
+                
+                <p>selectWorkout()</p>
+            </div>
+
+            <div class="Code" style="margin-top:25px;">
+                <p>cardioHome = ['run 1 mile', 'swimming', 'walking for 30 minutes']</p>
+                <p>cardioGym = ['biking 6 miles', 'running 1 mile on treadmill', 'swimming in lap pool for 30 minutes']</p>
+                <p>#^^ These are your cardio options for home and for gym</p>
+                            
+                <p>tricepsHome = ['Single Arm Kickback', 'Bent Double Arm Kickback', 'Standing Overhead Tricep Extension', 'Close Grip Dumbbell Press', 'Two Point Dumbbell Row',</p>
+                <p>               'Gravity Press', 'Close Grip Dumbbell Pushup', 'Half Bench Skull Crusher', 'Dumbbell JM Press', 'Dumbbell Tricep Dip']</p>
+                <p>tricepsGym = []</p>
+                <p>#Tris options</p>
+                            
+                <p>bicepsHome = ['Standing Bicep Curl', 'Hammer Curl', 'Incline Dumbbell Curl', 'Zottman Curl', 'Concentration Curl','Twisting Dumbbell Curl', ]</p>
+                              
+                <p>bicepsGym = []</p>
+                <p>#Bis options</p>
+                            
+                <p>backHome = ['Incline Row', 'Dumbbell Pullover', 'Elevated Plank Row Hold', 'Incline Pause Row', 'Renegade Row',</p>
+                <p>            'Towel Grip Dumbbell Row', 'Upright Row', 'V Taper Dumbbell Row']</p>
+                <p>backGym = []</p>
+                <p>#Back Options</p>
+                            
+                <p>chestHome = ['Dumbbell flat press', 'Deep push ups', 'Dumbbell Twisted Fly', 'Dumbbell One Arm Chest Press', 'Dumbbell Incline Around the World',</p>
+                <p>             'Dumbbell Pullover', 'Dumbbell Standing Low Fly', 'Dumbbell Lying Hammer Press']</p>
+                <p>chestGym = []</p>
+                <p>#Chest options</p>
+                            
+                <p>shouldersHome = ['Shoulder Press', 'Lateral Raise', 'Front Raise', 'Upright Row', 'Car Driver', 'Raise and Pull Apart', 'Military Press']</p>
+                <p>shouldersGym = []</p>
+                <p>#Shoulders Options</p>
+
+
+            </div>
+            
+
+        </div>
+
+        <div class="sectionFour">
+            <h2>Future Updates</h2>
+
+            <p>
+                This project is extremely barebones. There are many things I would like to do to improve it. First I think I'd like to incorporate TK. That just makes things a lot cleaner. After that, I'd like to provide
+                different cardio options to pick from, whether or not you are going to a gym, and potentially a record for your previous workouts. It would be neat to let people set and track their fitness goals on this project.
+                Another thing I'd take interest in is including some kind of images or gifs of the workouts in question. Honestly I don't even know what some of those are, so having the ability to click on them and get some reference would be great.
+            </p>
+
+            <img src="" alt="Prototype images of the potential updates if applicable">
+        </div>
+    
+    </body>
+</html>

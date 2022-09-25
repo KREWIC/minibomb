@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="15.105804mm"
+   height="14.95665mm"
+   viewBox="0 0 15.105804 14.95665"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
+   sodipodi:docname="MinibombWireframe.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.91490602"
+     inkscape:cx="-331.72806"
+     inkscape:cy="734.50167"
+     inkscape:window-width="2560"
+     inkscape:window-height="1377"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g6743" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(309.7884,-228.29806)">
+    <g
+       id="g6715-2"
+       transform="translate(-109.40189,-7.668361)">
+      <ellipse
+         style="opacity:0.69;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.669936;stroke-opacity:1"
+         id="path5310-9-5"
+         cx="-192.83359"
+         cy="243.44475"
+         rx="7.2179308"
+         ry="7.1433625" />
+      <g
+         id="g14226-0"
+         inkscape:export-filename="PCShutoffIMG.svg"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96"
+         style="fill:#000175;fill-opacity:1"
+         transform="matrix(0.41257279,0,0,0.41257279,-207.92032,206.80157)">
+        <ellipse
+           style="fill:#000175;fill-opacity:1;stroke:#ffffff;stroke-width:0.755999;stroke-dasharray:none;stroke-opacity:1"
+           id="path6403-4"
+           cx="36.501373"
+           cy="90.384354"
+           rx="9.5087614"
+           ry="9.6110058" />
+        <rect
+           style="fill:#000175;fill-opacity:1;stroke:#ffffff;stroke-width:0.815824;stroke-dasharray:none;stroke-opacity:1"
+           id="rect6405-0"
+           width="3.2120066"
+           height="9.5511799"
+           x="34.793129"
+           y="76.100006"
+           ry="1.3644545" />
+      </g>
+    </g>
+  </g>
+</svg>

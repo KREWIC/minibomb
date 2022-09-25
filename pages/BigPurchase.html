@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Big Purchase Plan</title>
+        <link rel="stylesheet" href="../css/openStyle.css">
+    </head>
+
+    <body>
+         
+        <div class="sectionOne">
+
+            <div class="topLinks">
+    
+            <a href="../index.html">
+        
+                    Minibomb
+            </a>
+                
+            <div class="siteLinks">
+                <ul>
+                    <li>Programs</li>
+                    <li>Coming Soon</li>
+                    <li>Blog</li>
+                </ul>
+            </div>
+    
+            </div>
+            
+                
+    
+            <div class="title">
+    
+                <h1>Big Purchase Plan</h1>
+                
+            </div>
+    
+    
+            <div class="titleImg">
+                <img src="../img/MainBigPurchase.svg" alt="Icon Image" style="width:150px;">
+            </div>
+            
+            </div>
+
+
+
+        <div class="sectionTwo">
+
+            <h2>Objective</h2>
+
+            <p>
+                This is designed to work with the spending plan application. The idea behind this project is to help you adjust your weekly spending when you have an item outside of what you can afford. After you enter the required inputs,
+               you will receive both a slider for the spending plan you are comfortable with, and the number of weeks it will take. Then you can calculate the time based on a comfortabel spending plan, or the spending plan based on when you
+               would want the item. 
+            </p>
+    <div class="objectiveIMG">
+        <img src="../img/downloadButton.png" alt="A download button" style="height:200px;">
+    
+                <img src="../img/spendingPlanOutput.png" alt="image of output here">
+    </div>
+        </div>
+
+        <div class="sectionThree">
+
+            <h2>The Code</h2>
+
+            <p>
+                This code runs similarly to the Spending Plan. It utilizes the python library tkinter. Only requires 2 inputs:
+                <ul>
+                    <li>Price of the item you are looking for</li>
+                    <li>Your current weekly spending plan</li>
+                </ul>
+                
+            </p>
+                
+            <p>
+                It's important that you have determined what your weekly spending plan is or you will not be able to utilize this program effectively.
+            Ideally this will be packaged with the spending plan in one program, but for the time being these are still 2 seperate programs.
+            <br><br>
+            The program uses 3 functions, each tied to a button from the tkinter library. spawnItems() is responsible for taking in the initial inputs for calculation and slider maximum values.
+            It's also responsible for giving a physical location to sliders and buttons for the 2nd part of the program. The last 2 functions are also tied to their respective button, one that calculates the time based on an adjusted spending plan
+            and one that calculates the required spending plan if you want the item in a certain period of time. 
+            </p>
+
+            <div class="Code">
+                <p>import tkinter as tk</p>
+
+
+                <p># --- functions ---</p>
+                
+                <p>def calcplan():</p>
+                <p>    #^^ 2nd button function</p>
+                <p>    try:</p>
+                <p>        savingsPossible.set(float(maximumPossible.get()) - (float(planSlider.get()) * 4.33 * float(monthsSaving.get())))</p>
+                <p>        #^^ Calculates a weekly spending plan based on value in slider and previously supplied information</p>
+                <p>    except Exception as ex:</p>
+                <p>        print(ex)</p>
+                <p>        savingsPossible.set('error')</p>
+                
+                <p>def calcSpending():</p>
+                <p>    try:</p>
+                <p>        planSlider.set((float(maximumPossible.get())-float(savingsPossible.get()))/(float(monthsSaving.get())*4.33))</p>
+                
+                <p>    except Exception as ex:</p>
+                <p>        print(ex)</p>
+                
+                
+                <p>def generate():</p>
+                <p>    #^^First button function</p>
+                <p>    try:</p>
+                <p>        result = (float(payPeriods.get()) / 12 * float(monthsSaving.get()) * float(amountPaid.get())) - \</p>
+                <p>                 (float(monthlyExpenses.get()) * float(monthsSaving.get()))</p>
+                <p>        spending = float(result) / (float(monthsSaving.get()) * 4.33)</p>
+                <p>        maximumPossible.set(result)</p>
+                <p>        maxSpending.set(spending)</p>
+                
+                <p>        #^^Calculations for what you can save if you spend nothing and what you can spend in a week if you spend every penny</p>
+                
+                <p>        planSlider.configure(from_=float(maxSpending.get()))</p>
+                <p>        planButton.grid(row=12, column=1)</p>
+                <p>        planSlider.grid(row=9, column=0)</p>
+                <p>        button.grid(row=7, column=1)</p>
+                <p>        spendingCashLabel.grid(row=8, column=0)</p>
+                <p>        amountSavedLabel.grid(row=8, column=1)</p>
+                <p>        savingsPossibleEntry.grid(row=9, column=1)</p>
+                <p>        spendingButton.grid(row=12, column=0)</p>
+                
+                <p>        #^^This makes it so that the 2nd part of the program will appear. Currently the variables are declared below but don't have a place on the matrix. After hitting the first button they will appear</p>
+                
+                <p>    except Exception as ex:</p>
+                <p>        print(ex)</p>
+                <p>        result = 'error'</p>
+                
+                
+                
+                <p># --- main ---</p>
+            
+                <p>root = tk.Tk()</p>
+                <p>#^^ declaration of the main window</p>
+            
+                <p>amountPaid = tk.StringVar()</p>
+                <p>payPeriods = tk.StringVar()</p>
+                <p>monthlyExpenses = tk.StringVar()</p>
+                <p>monthsSaving = tk.StringVar()</p>
+                <p>maximumPossible = tk.StringVar()</p>
+                <p>maxSpending = tk.StringVar()</p>
+                <p>#^^ String variables used for the entry fields</p>
+                
+                
+            
+                <p>tk.Label(root, text="Amount Per Paycheck: ").grid(row=0, column=0)</p>
+                <p>tk.Label(root, text="Payperiods Per Year: ").grid(row=1, column=0)</p>
+                <p>tk.Label(root, text="monthly Expenses: ").grid(row=2, column=0)</p>
+                <p>tk.Label(root, text="Months Saving: ").grid(row=3, column=0)</p>
+                <p>tk.Label(root, text=" ").grid(row=4, column=0)</p>
+                <p>tk.Label(root, text="MAX POSSIBLE SAVINGS").grid(row=5, column=0)</p>
+                <p>tk.Label(root, text="MAX POSSIBLE SPENDING").grid(row=6, column=0)</p>
+                <p>#^^Labels for part 1 of program</p>
+                
+                
+                <p>tk.Entry(root, textvariable=amountPaid).grid(row=0, column=1)</p>
+                <p>tk.Entry(root, textvariable=payPeriods).grid(row=1, column=1)</p>
+                <p>tk.Entry(root, textvariable=monthlyExpenses).grid(row=2, column=1)</p>
+                <p>tk.Entry(root, textvariable=monthsSaving).grid(row=3, column=1)</p>
+                <p>tk.Label(root, text="  ").grid(row=4, column=1)</p>
+                <p>tk.Entry(root, textvariable=maximumPossible).grid(row=5, column=1)</p>
+                <p>tk.Entry(root, textvariable=maxSpending).grid(row=6, column=1)</p>
+                <p>#^^Entry windows for part 1 of program</p>
+                
+                
+                <p>button = tk.Button(root, text="Calculate", command=generate)</p>
+                <p>button.grid(row=7, column=1)</p>
+                <p>#^^First button for after initial inputs</p>
+                
+                <p>planSlider = tk.Scale(root, from_=0, to=0)</p>
+                <p>#^^slider for part 2</p>
+                
+                
+                <p>spendingCashLabel = tk.Label(root, text="Spending Cash Per Week")</p>
+                <p>amountSavedLabel = tk.Label(root, text="Savings on Spending Plan")</p>
+                
+                
+                <p>savingsPossible = tk.StringVar()</p>
+                <p>savingsPossibleEntry = tk.Entry(root, textvariable=savingsPossible)</p>
+                <p>#^^Output for spending plan</p>
+                
+                <p>planButton = tk.Button(root, text='Calculate Savings',command=calcplan)</p>
+                <p>#^^PlanButton.grid(row=12, column=1)</p>
+                
+                <p>spendingButton = tk.Button(root, text='Calculate Spending', command=calcSpending)</p>
+                
+                <p>root.mainloop()</p>
+            </div>
+
+        </div>
+
+        <div class="sectionFour">
+            <h2>Future Updates</h2>
+
+            <p>The obvious thing to do with this is to fold it in with the spending plan into one financial application. If I were going to just make improvements to this specific application, 
+                I'd create a way to change the slider from your adjusted spending plan to the amount you'd want to save, and also make sure that both the amount you are saving per week and your current spending plan are plainly stated.</p>
+                <br><br>
+            
+            <p>
+                  If I were to consider this as a standalone project, I'd set it up so that you can input multiple items that you would want to purchase. Then you'd essentially set up a 'savings account' within the program, where you'd set your
+                reduced spending plan and determine the weekly contribution to the account. After that, the total you should have available would be on the program as well as that list of items you might want to purchase. When you can afford
+                 one of the items the text will turn green. The longer you wait to spend your savings, the higher the value of item you will receive. It'd be an interesting way to sort of gameify saving money.
+            </p>
+
+            <img src="" alt="Prototype images of the potential updates if applicable">
+        </div>
+    
+    </body>
+</html>

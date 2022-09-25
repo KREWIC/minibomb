@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>List Maker</title>
+        <link rel="stylesheet" href="../css/style.css">
+    </head>
+
+    <body>
+         
+        <div class="sectionOne">
+
+            <div class="topLinks">
+    
+            <a href="../index.html">
+        
+                    Minibomb
+            </a>
+                
+            <div class="siteLinks">
+                <ul>
+                    <li>Programs</li>
+                    <li>Coming Soon</li>
+                    <li>Blog</li>
+                </ul>
+            </div>
+    
+            </div>
+            
+                
+    
+            <div class="title">
+    
+                <h1>Spending Plan</h1>
+                
+            </div>
+    
+    
+            <div class="titleImg">
+                <img src="../img/MainListMakerIMG.svg" alt="Icon Image" style="width:150px;">
+            </div>
+            
+            </div>
+
+
+
+        <div class="sectionTwo">
+
+            <h2>Objective</h2>
+
+            <p>
+                  This would be a pretty simple master list application. I want something that's outside of applications like word or onenote namely so it's a bit more modular. You'd start at the master window where you can select from your differnet lists.
+                When adding a new list you'll select from a number of options for the kind of list it is. Some of the options could include journal entries, date and calendar, unordered list, Key Counting, and probably some others down the line
+            </p>
+            <img src="" alt="A download button">
+
+            <img src="" alt="image of output here">
+
+        </div>
+
+        <div class="sectionThree">
+
+            <h2>The Code</h2>
+
+            <p>
+                I'd probably build this in Python using TKinter again, using a root menu that would. For the selections I'd probably use an open ended array where you can with each entry having a button to delete or edit. 
+                There's going to be a lot of data to manage here, it's probably best to make a step process for how everything is going to need to shake out. Here's a user story for how this should all work. This branch is for users
+                creating a new list upon opening the program.
+            </p>
+            <ol>
+                <li>The User opens the program</li>
+                <ul>
+                    <li>Program loads the master array</li>
+                    <li>Likely will need a for loop that creates each selection to get this to work with TK properly.</li>
+                </ul>
+                <li>The User selects 'New List' button in the top left corner</li>
+                <ul>
+                    <li>Function will run to spawn the options menu</li>
+                </ul>
+                <li>The User makes selections on the type of list, potential theme(color options) and inputs a name</li>
+                <li>The User selects the Create List button</li>
+                <ul>
+                    <li>The program will then make an addition to the master array with the title of the name.</li>
+                    <li>Based on the selections you have made in the option menus, several things will happen</li>
+                    <ol>
+                        <li>A new Python file will be made and populated with a template for the list type.</li>
+                        <li>post creation, that file will open and run for the user to populate with list items.</li>
+                    </ol>
+                </ul>
+            </ol>
+
+            <p>The above is just one possible user story, this is a project that would require a lot of moving parts, and would likely need a roadmap with milestones for the different types of lists. A good one to do if I ever find some extra time.</p>
+            <img src="" alt="Screenshot of the code">
+
+        </div>
+
+    </body>
+</html>

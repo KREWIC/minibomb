@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Spending Plan</title>
+        <link rel="stylesheet" href="../css/openStyle.css">
+    </head>
+
+    <body>
+        
+        <div class="sectionOne">
+
+        <div class="topLinks">
+
+        <a href="../index.html">
+    
+                Minibomb
+        </a>
+            
+        <div class="siteLinks">
+            <ul>
+                <li>Programs</li>
+                <li>Coming Soon</li>
+                <li>Blog</li>
+            </ul>
+        </div>
+
+        </div>
+        
+            
+
+        <div class="title">
+
+            <h1>Spending Plan</h1>
+            
+        </div>
+
+
+        <div class="titleImg">
+            <img src="../img/MainSpendingPlan.svg" alt="Icon Image" style="width:150px;">
+        </div>
+        
+        </div>
+
+
+        <div class="sectionTwo">
+
+            <h2>Objective</h2>
+
+            <p>
+                The point of this code is to determine what you are allowed to spend every week based on an amount of money you want to save within a period of time.
+                I used this code after I finished college to make sure I would have a good savings for when I finally moved out of my parents house. It takes a number of inputs and
+                outputs an adjustable weekly spending plan. From there you can just set up a weeky transfer through whatever bank you use for that amount on Mondays.
+                If you stick exactly to this plan you will reach your goal within a time period you have provided. You can download it below, or if you aren't comfortable with that you can just check out the 
+                screenshots of the code and recreate it! This plan is actually designed to work with my Big Purchase Plan. Feel free to check that one out as well.
+            </p>
+<div class="objectiveIMG">
+            <img src="../img/downloadButton.png" alt="A download button" style="height:200px;">
+
+            <img src="../img/spendingPlanOutput.png" alt="image of output here">
+</div>
+        </div>
+
+        <div class="sectionThree">
+
+            <h2>The Code</h2>
+
+            <p>
+                This project was programmed in Python. While it would have been easy to achieve a similar project using Excel, building a foundation in Python will allow
+                me more freedom with other features I may want to add in later down the line. I originally built this program without use of other libraries but ultimately
+                decided to learn tkinter so that you can dynamically alter the amounts and experiment with new plan and savings amounts until you find what you are happy
+                with. <br><br>
+
+                The program uses 3 functions, each tied to a button from the tkinter library. Generate() is responsible for taking in the initial inputs and calculating the maximum possible spending and savings for the program. 
+                It's also responsible for giving a physical location to sliders and buttons for the 2nd part of the program. The last 2 functions allow you to make either a spending plan based on the savings you would like,
+                or to generate savings based on a spending plan you are comfortable with. 
+            </p>
+
+            <div class="Code">
+<p>import tkinter as tk</p>
+
+
+<p># --- functions ---</p>
+
+<p>def calcplan():</p>
+<p>    #^^ 2nd button function</p>
+<p>    try:</p>
+<p>        savingsPossible.set(float(maximumPossible.get()) - (float(planSlider.get()) * 4.33 * float(monthsSaving.get())))</p>
+<p>        #^^ Calculates a weekly spending plan based on value in slider and previously supplied information</p>
+<p>    except Exception as ex:</p>
+<p>        print(ex)</p>
+<p>        savingsPossible.set('error')</p>
+
+<p>def calcSpending():</p>
+<p>    try:</p>
+<p>        planSlider.set((float(maximumPossible.get())-float(savingsPossible.get()))/(float(monthsSaving.get())*4.33))</p>
+
+<p>    except Exception as ex:</p>
+<p>        print(ex)</p>
+
+
+<p>def generate():</p>
+<p>    #^^First button function</p>
+<p>    try:</p>
+<p>        result = (float(payPeriods.get()) / 12 * float(monthsSaving.get()) * float(amountPaid.get())) - \</p>
+<p>                 (float(monthlyExpenses.get()) * float(monthsSaving.get()))</p>
+<p>        spending = float(result) / (float(monthsSaving.get()) * 4.33)</p>
+<p>        maximumPossible.set(result)</p>
+<p>        maxSpending.set(spending)</p>
+
+<p>        #^^Calculations for what you can save if you spend nothing and what you can spend in a week if you spend every penny</p>
+
+<p>        planSlider.configure(from_=float(maxSpending.get()))</p>
+<p>        planButton.grid(row=12, column=1)</p>
+<p>        planSlider.grid(row=9, column=0)</p>
+<p>        button.grid(row=7, column=1)</p>
+<p>        spendingCashLabel.grid(row=8, column=0)</p>
+<p>        amountSavedLabel.grid(row=8, column=1)</p>
+<p>        savingsPossibleEntry.grid(row=9, column=1)</p>
+<p>        spendingButton.grid(row=12, column=0)</p>
+
+<p>        #^^This makes it so that the 2nd part of the program will appear. Currently the variables are declared below but don't have a place on the matrix. After hitting the first button they will appear</p>
+
+<p>    except Exception as ex:</p>
+<p>        print(ex)</p>
+<p>        result = 'error'</p>
+
+
+
+<p># --- main ---</p>
+
+<p>root = tk.Tk()</p>
+<p>#^^ declaration of the main window</p>
+
+<p>amountPaid = tk.StringVar()</p>
+<p>payPeriods = tk.StringVar()</p>
+<p>monthlyExpenses = tk.StringVar()</p>
+<p>monthsSaving = tk.StringVar()</p>
+<p>maximumPossible = tk.StringVar()</p>
+<p>maxSpending = tk.StringVar()</p>
+<p>#^^ String variables used for the entry fields</p>
+
+
+
+<p>tk.Label(root, text="Amount Per Paycheck: ").grid(row=0, column=0)</p>
+<p>tk.Label(root, text="Payperiods Per Year: ").grid(row=1, column=0)</p>
+<p>tk.Label(root, text="monthly Expenses: ").grid(row=2, column=0)</p>
+<p>tk.Label(root, text="Months Saving: ").grid(row=3, column=0)</p>
+<p>tk.Label(root, text=" ").grid(row=4, column=0)</p>
+<p>tk.Label(root, text="MAX POSSIBLE SAVINGS").grid(row=5, column=0)</p>
+<p>tk.Label(root, text="MAX POSSIBLE SPENDING").grid(row=6, column=0)</p>
+<p>#^^Labels for part 1 of program</p>
+
+
+<p>tk.Entry(root, textvariable=amountPaid).grid(row=0, column=1)</p>
+<p>tk.Entry(root, textvariable=payPeriods).grid(row=1, column=1)</p>
+<p>tk.Entry(root, textvariable=monthlyExpenses).grid(row=2, column=1)</p>
+<p>tk.Entry(root, textvariable=monthsSaving).grid(row=3, column=1)</p>
+<p>tk.Label(root, text="  ").grid(row=4, column=1)</p>
+<p>tk.Entry(root, textvariable=maximumPossible).grid(row=5, column=1)</p>
+<p>tk.Entry(root, textvariable=maxSpending).grid(row=6, column=1)</p>
+<p>#^^Entry windows for part 1 of program</p>
+
+
+<p>button = tk.Button(root, text="Calculate", command=generate)</p>
+<p>button.grid(row=7, column=1)</p>
+<p>#^^First button for after initial inputs</p>
+
+<p>planSlider = tk.Scale(root, from_=0, to=0)</p>
+<p>#^^slider for part 2</p>
+
+
+<p>spendingCashLabel = tk.Label(root, text="Spending Cash Per Week")</p>
+<p>amountSavedLabel = tk.Label(root, text="Savings on Spending Plan")</p>
+
+
+<p>savingsPossible = tk.StringVar()</p>
+<p>savingsPossibleEntry = tk.Entry(root, textvariable=savingsPossible)</p>
+<p>#^^Output for spending plan</p>
+
+<p>planButton = tk.Button(root, text='Calculate Savings',command=calcplan)</p>
+<p>#^^PlanButton.grid(row=12, column=1)</p>
+
+<p>spendingButton = tk.Button(root, text='Calculate Spending', command=calcSpending)</p>
+
+<p>root.mainloop()</p>
+            </div>
+
+        </div>
+
+        <div class="sectionFour">
+            <h2>Future Updates</h2>
+
+            <p>
+                In the future I'd like to make one larger financial planning application. It could consist of the main window, showing your investments and assets, current spending plan,
+                as well as buttons with several different operations including the spending plan. I'll fold in the big purchase plan to this application, create one for increase or decrease in asset value. I'd also like to create a 
+                debt management option amongst these. To do this, I'll need to learn about creating additional windows in tkinter, 
+            </p>
+
+            <img src="" alt="Prototype images of the potential updates if applicable">
+        </div>
+    
+    </body>
+</html>

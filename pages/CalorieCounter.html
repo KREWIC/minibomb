@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Calorie Counter</title>
+        <link rel="stylesheet" href="../css/openStyle.css">
+    </head>
+
+    <body>
+         
+        <div class="sectionOne">
+
+            <div class="topLinks">
+    
+            <a href="../index.html">
+        
+                    Minibomb
+            </a>
+                
+            <div class="siteLinks">
+                <ul>
+                    <li>Programs</li>
+                    <li>Coming Soon</li>
+                    <li>Blog</li>
+                </ul>
+            </div>
+    
+            </div>
+            
+                
+    
+            <div class="title">
+    
+                <h1>Calorie Counter</h1>
+                
+            </div>
+    
+    
+            <div class="titleImg">
+                <img src="../img/MainCalorieCounterIMG.svg" alt="Icon Image" style="width:150px;">
+            </div>
+            
+            </div>
+
+
+        <div class="sectionTwo">
+
+            <h2>Objective</h2>
+
+            <p>This is an extremely simple program to cout calories for you. It's basically just a placeholder and will likely not be here after I have something better to post here.</p>
+    
+    <div class="objectiveIMG">
+        <img src="../img/downloadButton.png" alt="A download button" style="height:200px;">
+    
+                <img src="../img/spendingPlanOutput.png" alt="image of output here">
+    </div>
+
+        </div>
+
+        <div class="sectionThree">
+
+            <h2>The Code</h2>
+
+            <p>Text about how the code is structured here. Probably a UL with the inputs required</p>
+
+            <div class="Code">
+            <p>    def calorieCounter():</p>
+            <p>    dailyBudget = float(input('input your calorie budget for the day: '))</p>
+            <p>    totalCalories=0</p>
+            
+            <p>    while True:</p>
+            <p>        selection = input('If for workout input w \n If for food input f')</p>
+            
+            <p>        if selection == 'w':</p>
+            <p>            caloriesBurned = float(input('Input the amount of calories burned: '))</p>
+            <p>            dailyBudget += caloriesBurned</p>
+            <p>            print('your remaining calories for the day are ' + str(dailyBudget))</p>
+        
+            <p>        if selection == 'f':</p>
+            <p>            caloriesConsumed = float(input('Input the amount of calories burned: '))</p>
+            <p>            dailyBudget -= caloriesConsumed</p>
+            <p>            print('your remaining calories for the day are ' + str(dailyBudget))</p>
+            
+            <p>calorieCounter()</p>
+            </div>
+
+        </div>
+
+        <div class="sectionFour">
+            <h2>Future Updates</h2>
+
+            <p>Plans on how I would improve this project. What are they and what would the code look like</p>
+
+            <img src="" alt="Prototype images of the potential updates if applicable">
+        </div>
+    
+    </body>
+</html>
